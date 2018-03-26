@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="scoreBoardApp">
-    <head lang="en">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Scoreboard</title>
-        <link rel="stylesheet" href="./out/css/screen.css">
-    </head>
-    <body>
-        <h1>Hello, World!</h1>
 
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <script src="./src/js/main.js" charset="utf-8"></script>
-     </body>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="./out/css/screen.css">
+</head>
+
+<body ng-controller="gameController">
+
+    <section ng-controller="teamController" ng-repeat="team in teams track by $index">
+        <h2>{{team.name}}</h2>
+        <h3>{{team.score}}</h3>
+        <section>
+            <button ng-click="team.adjustScore(1)">Add 1</button>
+            <button ng-click="team.adjustScore(-1)">Sub 1</button>
+        </section>
+        <section>
+            <input ng-model="nameHolder" type="text">
+            <button ng-click="team.setName(nameHolder)">Update team name</button>
+        </section>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stampit/3.2.1/stampit.umd.min.js"></script>
+    <script src="./src/js/main.js" charset="utf-8"></script>
+</body>
+
 </html>
