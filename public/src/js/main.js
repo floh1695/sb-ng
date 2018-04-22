@@ -26,7 +26,7 @@ const Team = createStamp({
 angular
     .module('scoreBoardApp', [])
     .controller('gameController', ($scope) => {
-        $scope.teams = new Array(2);
+        $scope.teams = new Array(100);
     })
     .controller('teamController', ($scope) => {
         $scope.team = Team({});
